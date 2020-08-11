@@ -73,7 +73,7 @@ const GameInitializationForm: React.FC<GameInitializationFormProps> = ({
       setErrorLabel("The word can't be so short, must be at least 4 letters ");
       return;
     }
-    getSelectedWord(selectedWordInit.trim().toLocaleLowerCase());
+    getSelectedWord(selectedWordInit.trim().toLowerCase());
     setSelectedWord("");
   };
 

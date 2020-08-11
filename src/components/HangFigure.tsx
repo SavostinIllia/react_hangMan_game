@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+interface HangFigureProps {
+  wrongLetters: string[];
+}
+
 const SvgHang = styled.svg<{ height: number; width: number }>`
   fill: transparent;
   stroke: #fff;
@@ -9,13 +13,13 @@ const SvgHang = styled.svg<{ height: number; width: number }>`
   margin-top: 50px;
 `;
 
-const FigurePart = styled.line`
-  display: none;
-`;
-
+const FigurePart = styled.line``;
+const FigureCircle = styled.circle``;
 const FigureRod = styled.line``;
 
-const HangFigure: React.FC = () => {
+const HangFigure: React.FC<HangFigureProps> = ({ wrongLetters }) => {
+  const wrongLetterMistake: number = wrongLetters.length;
+
   return (
     <div>
       <SvgHang height={250} width={250}>
@@ -26,15 +30,28 @@ const HangFigure: React.FC = () => {
         <FigureRod x1="20" y1="230" x2="100" y2="230" />
 
         {/* <!-- Head --> */}
-        <FigurePart cx="140" cy="70" r="20" />
+        {wrongLetterMistake >= 1 && <FigureCircle cx="140" cy="70" r="20" />}
+
         {/* <!-- Body --> */}
-        <FigurePart x1="140" y1="90" x2="140" y2="150" />
+        {wrongLetterMistake >= 2 && (
+          <FigurePart x1="140" y1="90" x2="140" y2="150" />
+        )}
+
         {/* <!-- Arms --> */}
-        <FigurePart x1="140" y1="120" x2="120" y2="100" />
-        <FigurePart x1="140" y1="120" x2="160" y2="100" />
+        {wrongLetterMistake >= 3 && (
+          <FigurePart x1="140" y1="120" x2="120" y2="100" />
+        )}
+        {wrongLetterMistake >= 4 && (
+          <FigurePart x1="140" y1="120" x2="160" y2="100" />
+        )}
+        {wrongLetterMistake >= 5 && (
+          <FigurePart x1="140" y1="150" x2="120" y2="180" />
+        )}
+        {wrongLetterMistake >= 6 && (
+          <FigurePart x1="140" y1="150" x2="160" y2="180" />
+        )}
+
         {/* <!-- Legs --> */}
-        <FigurePart x1="140" y1="150" x2="120" y2="180" />
-        <FigurePart x1="140" y1="150" x2="160" y2="180" />
       </SvgHang>
     </div>
   );

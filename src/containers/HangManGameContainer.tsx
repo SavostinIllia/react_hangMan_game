@@ -51,7 +51,7 @@ const HangManGameContainer: React.FC<HangManGameContainerProps> = ({
   return (
     <>
       <HangManContainerSection>
-        <HangFigure />
+        <HangFigure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
       </HangManContainerSection>
       <Word selectedWord={selectedWord} correctLetters={correctLetters} />
