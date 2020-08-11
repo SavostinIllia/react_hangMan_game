@@ -18,6 +18,7 @@ const HangManContainerSection = styled.section`
   margin: 0 auto;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const HangManGameContainer: React.FC<HangManGameContainerProps> = ({

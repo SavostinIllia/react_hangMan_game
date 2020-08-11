@@ -5,6 +5,9 @@ interface HangFigureProps {
   wrongLetters: string[];
 }
 
+const FigureWrapper = styled.div`
+  flex: 0 0 50%;
+`;
 const SvgHang = styled.svg<{ height: number; width: number }>`
   fill: transparent;
   stroke: #fff;
@@ -21,7 +24,7 @@ const HangFigure: React.FC<HangFigureProps> = ({ wrongLetters }) => {
   const wrongLetterMistake: number = wrongLetters.length;
 
   return (
-    <div>
+    <FigureWrapper>
       <SvgHang height={250} width={250}>
         {/* <!-- Rod --> */}
         <FigureRod x1="60" y1="20" x2="140" y2="20" />
@@ -53,7 +56,7 @@ const HangFigure: React.FC<HangFigureProps> = ({ wrongLetters }) => {
 
         {/* <!-- Legs --> */}
       </SvgHang>
-    </div>
+    </FigureWrapper>
   );
 };
 

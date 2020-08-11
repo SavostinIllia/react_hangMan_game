@@ -9,6 +9,9 @@ const HangManHeader = styled.header<{ gameInit: boolean }>`
   transition: 0.3s ease-in-out;
   text-align: center;
   color: #fff;
+  @media (max-width: 480px) {
+    font-size: 35px;
+  }
 `;
 
 const EmojiWrapper = styled.span`

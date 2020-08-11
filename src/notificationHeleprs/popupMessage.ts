@@ -6,7 +6,7 @@ export function popupMessage(
   let status: string = "win";
   // Check for win
 
-  word.split("").forEach((letter: string) => {
+  word.split("").forEach((letter) => {
     if (!correct.includes(letter)) {
       status = "";
     }

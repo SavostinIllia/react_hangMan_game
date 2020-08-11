@@ -13,20 +13,33 @@ const SetWordForm = styled.form`
   margin: 0 auto;
   align-items: stretch;
   margin-top: 20px;
+  padding: 0 20px;
 `;
 const InputWordWrapper = styled.div`
   width: 60%;
   position: relative;
+  @media (max-width: 600px) {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+  }
 `;
 const SetWordFormInput = styled.input`
   padding: 5px 15px;
   font-size: 25px;
   color: #fff;
-
   border: 1.5px solid #fff;
   background: transparent;
   border-radius: 5px;
   margin-right: 10px;
+  &::-webkit-input-placeholder {
+    color: #fff;
+    opacity: 0.8;
+  }
+  @media (max-width: 600px) {
+    font-size: 20px;
+    width: 100%;
+  }
 `;
 const WordInputLabel = styled.label<{ errorLabel: string }>`
   color: ${(props) => (props.errorLabel ? "#c0392b" : null)};
@@ -46,14 +59,26 @@ const WordSubmitButton = styled.button`
   &:hover {
     box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
   }
+  @media (max-width: 600px) {
+    padding: 10px;
+    margin-top: 20px;
+    flex: 0 0 100%;
+    max-width: 150px;
+  }
 `;
-const WordShowButton = styled.button`
+const WordShowPassword = styled.button`
   background: transparent;
   border: 0;
   position: absolute;
   top: 50%;
   right: 50px;
   transform: translateY(-50%);
+  font-size: 30px;
+  display: flex;
+
+  @media (max-width: 600px) {
+    right: 20px;
+  }
 `;
 
 const GameInitializationForm: React.FC<GameInitializationFormProps> = ({
@@ -92,11 +117,14 @@ const GameInitializationForm: React.FC<GameInitializationFormProps> = ({
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               onChangeHandler(e)
             }
+            placeholder="Select the word..."
           />
-          <WordShowButton
+          <WordShowPassword
             type="button"
             onMouseDown={() => setIsShowResult(!isShowResult)}
             onMouseUp={() => setIsShowResult(!isShowResult)}
+            onTouchStart={() => setIsShowResult(!isShowResult)}
+            onTouchEnd={() => setIsShowResult(!isShowResult)}
           >
             {!isShowResult ? (
               <svg
@@ -130,7 +158,7 @@ const GameInitializationForm: React.FC<GameInitializationFormProps> = ({
                 />
               </svg>
             )}
-          </WordShowButton>
+          </WordShowPassword>
         </InputWordWrapper>
         <WordSubmitButton type="submit">Set word</WordSubmitButton>
       </SetWordForm>
