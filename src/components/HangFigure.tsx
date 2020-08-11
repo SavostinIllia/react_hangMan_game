@@ -30,24 +30,24 @@ const HangFigure: React.FC<HangFigureProps> = ({ wrongLetters }) => {
         <FigureRod x1="20" y1="230" x2="100" y2="230" />
 
         {/* <!-- Head --> */}
-        {wrongLetterMistake >= 1 && <FigureCircle cx="140" cy="70" r="20" />}
+        {wrongLetterMistake > 0 && <FigureCircle cx="140" cy="70" r="20" />}
 
         {/* <!-- Body --> */}
-        {wrongLetterMistake >= 2 && (
+        {wrongLetterMistake > 1 && (
           <FigurePart x1="140" y1="90" x2="140" y2="150" />
         )}
 
         {/* <!-- Arms --> */}
-        {wrongLetterMistake >= 3 && (
+        {wrongLetterMistake > 2 && (
           <FigurePart x1="140" y1="120" x2="120" y2="100" />
         )}
-        {wrongLetterMistake >= 4 && (
+        {wrongLetterMistake > 3 && (
           <FigurePart x1="140" y1="120" x2="160" y2="100" />
         )}
-        {wrongLetterMistake >= 5 && (
+        {wrongLetterMistake > 4 && (
           <FigurePart x1="140" y1="150" x2="120" y2="180" />
         )}
-        {wrongLetterMistake >= 6 && (
+        {wrongLetterMistake > 5 && (
           <FigurePart x1="140" y1="150" x2="160" y2="180" />
         )}
 

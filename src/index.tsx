@@ -7,6 +7,8 @@ import GlobalStyle from "./Styles/GlobalStyle";
 const HangManPageWrapper = styled.section`
   min-height: 100vh;
   background: #16a085;
+  overflow: hidden;
+  position: relative;
 `;
 
 ReactDOM.render(

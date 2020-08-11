@@ -29,13 +29,17 @@ const HangManPage: React.FC = () => {
   return (
     <>
       <HangManHeader gameInit={gameInit}>
-        React HangMan Game{" "}
+        React HangMan Game
         <EmojiWrapper role="img" aria-label="HangMan">
           😵
         </EmojiWrapper>
       </HangManHeader>
       {gameInit ? (
-        <HangManGameContainer selectedWord={selectedWord} />
+        <HangManGameContainer
+          selectedWord={selectedWord}
+          setGameInit={setGameInit}
+          getSelectedWord={getSelectedWord}
+        />
       ) : (
         <GameInitializationForm
           getSelectedWord={(selectedWord) => getSelectedWord(selectedWord)}
