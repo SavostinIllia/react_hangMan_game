@@ -7,6 +7,9 @@ interface HangFigureProps {
 
 const FigureWrapper = styled.div`
   flex: 0 0 50%;
+  @media (max-width: 600px) {
+    flex: 0 0 100%;
+  }
 `;
 const SvgHang = styled.svg<{ height: number; width: number }>`
   fill: transparent;
